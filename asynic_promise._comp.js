@@ -280,3 +280,66 @@ t.then(x=>{
 
 // }
 // secondmain()
+
+
+
+//  code with harry exercise solution
+async function main() {
+let min=1000 
+let max =7000
+
+
+let first = new Promise((resolve, reject) => {
+    let delay = Math.floor(Math.random() *  (max - min + 1)) + min;
+    setTimeout(() => {
+        resolve("initilizing haking")
+    }, delay);
+})
+ let t= await first
+ console.log(t)
+let k=document.getElementsByClassName("h1")
+k[0].innerText=t
+k[0].classList.add("blink");
+
+    let second= new Promise((resolve, reject) => {
+        let delay = Math.floor(Math.random() *  (max - min + 1)) + min;
+            setTimeout(() => {
+                resolve("reading your files")
+                
+            }, delay);
+    })
+   ;
+    t=await second
+    document.getElementsByClassName("h1")[0].classList.remove("blink");
+     k=document.getElementsByClassName("h2")
+    
+k[0].innerText=t
+
+k[0].classList.add("blink");
+
+    let third= new Promise((resolve, reject) => {
+        let delay = Math.floor(Math.random() *  (max - min + 1)) + min;
+            setTimeout(() => {
+                resolve("password files detetued")
+             
+            }, delay);
+    })
+    t=await third
+    document.getElementsByClassName("h2")[0].classList.remove("blink");
+     k=document.getElementsByClassName("h2")
+k[1].innerText=t
+k[1].classList.add("blink");
+    let fourth= new Promise((resolve, reject) => {
+        let delay = Math.floor(Math.random() *  (max - min + 1)) + min;
+            setTimeout(() => {
+                resolve("sending pas file to server")
+              
+            }, delay);
+    })
+    t=await fourth
+    document.getElementsByClassName("h2")[1].classList.remove("blink");
+     k=document.getElementsByClassName("h2")
+k[2].innerText=t
+k[2].classList.add("blink");
+}
+main()
