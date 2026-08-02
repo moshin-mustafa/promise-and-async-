@@ -343,3 +343,180 @@ k[2].innerText=t
 k[2].classList.add("blink");
 }
 main()
+//  project work flow 
+async function start() {
+    async function login(username, Password) {
+        let t = new Promise((resolve, reject) => {
+            console.log("getting user")
+            setTimeout(() => {
+                if (username == "admin" && Password == 123) {
+                    resolve("login")
+
+                }
+                else {
+                    reject("invalid crendtial")
+                }
+
+            }, 2000);
+
+        })
+        
+
+
+           let  y = await t
+            console.log(y)
+            console.log("prices", ["1000", "5000", "10000"])
+            console.log("product", ["APPLE", "ORANGES", "KFC"])
+            return y
+            
+        
+    }
+    
+  
+
+ async function getuser() {
+
+    let nu=new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+
+            resolve({
+                     username:"admin",
+                     id:123
+                     
+    
+                 })
+            
+        
+        
+            
+                    
+
+        }, 3000);
+        
+    })
+
+  let t= await nu
+    console.log(t.username)
+    console.log(t.id)      
+    
+    
+    return t
+
+ }
+
+
+     
+
+     
+
+  
+ 
+ async function oder(a) {
+     let k = new Promise((resolve, reject) => {
+         
+         if (a == "apple") {
+             setTimeout(() => {
+                 
+                 resolve({
+                     a: "apple",
+                     price: 1000
+                    })
+                }, 5000);
+                
+            }
+            else if (a == "ORANGES") {
+                setTimeout(() => {
+                    
+                    resolve({
+                        a: "ORANGES",
+                        price: 5000
+                    })
+                }, 6000);
+                
+            }
+            else if (a == "KFC") {
+                setTimeout(() => {
+                    
+                    resolve({
+                        a: "KFC",
+                        price: 10000
+                    })
+                }, 7000);
+                
+            }
+            else{
+                reject("invalid item")
+                
+            }
+            
+        })
+
+            let u = await k
+            console.log(u.a)
+            console.log(u.price)
+        return u
+    }
+    
+    async function payment(amount) {
+        
+        let yy=new Promise((resolve, reject) => {
+            if (amount==5000){
+                setTimeout(() => {
+                    resolve("payment succesful")
+                }, 9000);
+            }
+            else{
+                reject("insufficent balance")
+            }
+            
+        })
+
+            let py= await yy
+            console.log(py)
+        return py
+        
+    }
+  
+    
+    async function complete(tt) {
+        let comp=new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(tt==true){
+                    resolve("succsesful")
+                }
+                else{
+                    reject("something went wrong")
+                }
+            }, 10000);
+            
+        })
+        
+            let com=await comp
+            console.log(com)
+            return com
+    }    
+        try {
+       let tt=login("admin",123)
+       let ge = await tt
+       
+       let my=getuser()
+        let yy= await my
+        let mo=oder("ORANGES")
+        let fo= await mo
+        let py= payment(5000)
+        let p= await py
+        let com=complete(true)
+        let proc=com    
+   } catch (error) {
+    
+console.log(error)    
+   }
+
+  
+    
+
+
+}
+start()
+
