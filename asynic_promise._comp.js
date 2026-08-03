@@ -520,3 +520,186 @@ console.log(error)
 }
 start()
 
+
+
+
+async function start() {
+    async function login(username, password) {
+        let log = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (username == "admin" && password == 123) {
+                    resolve({
+                        username: "admin",
+                        id: 101
+                    })
+
+                }
+                else {
+                    reject("Invalid Credentials")
+                }
+            }, 2000);
+        })
+        let system = await log
+        console.log(system.username)
+        console.log(system.id)
+        return system
+    }
+
+    async function resturant(user) {
+        let re = new Promise((resolve, reject) => {
+            setTimeout(() => {
+
+                if (user) {
+
+                    resolve({
+                        restaurant: "Food Palace",
+                        status: "Open"
+                    })
+                }
+                else {
+                    reject("Restaurant Closed")
+                }
+
+            }, 3000);
+        })
+        let res = await re
+        console.log(res.restaurant)
+        console.log(res.status)
+        let foodNames = ["Burger", "Pizza", "Biryani"]
+        console.log(foodNames)
+        return res
+    }
+
+    async function order(foodNames) {
+        let odr = new Promise((resolve, reject) => {
+
+            // console.log(foodNames)
+            setTimeout(() => {
+                if (foodNames == "Burger") {
+                    resolve({
+                        item: "Burger",
+                        price: 1000
+                    })
+                }
+                else if (foodNames == "Pizza") {
+                    resolve({
+                        item: "Pizza",
+                        price: 1200
+                    })
+                }
+                else if (foodNames == "Biryani") {
+                    resolve({
+                        item: "Biryani",
+                        price: 1500
+                    })
+                }
+                else {
+                    reject("invalid food")
+                }
+            }, 4000);
+        })
+        let odrr = await odr
+        console.log(odrr.item)
+        console.log(odrr.price)
+        return odrr
+    }
+    async function bill(order) {
+        let billing = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let subtotal = order.price
+                let tax = 0.1 * 100
+                let total = subtotal + tax
+
+                resolve({
+                    subtotal: subtotal,
+                    tax: tax,
+                    total: total
+
+                })
+
+            }, 2000);
+
+        })
+        let bills = await billing
+        console.log(bills.subtotal)
+        console.log(bills.tax)
+        console.log(bills.total)
+        return bills
+    }
+    async function payment(amount, bills) {
+        let amountdue = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (amount > bills) {
+                    resolve({
+                        payment: "Successful",
+                        transactionId: 98765
+                    })
+                }
+                else {
+                    reject("Insufficient Balance")
+                }
+            }, 3000);
+        })
+        let amout = await amountdue
+        console.log(amout.payment)
+        console.log(amout.transactionId)
+        return amout
+    }
+    async function assignrider(payment) {
+        let rider=new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                        rider: "Ahmed",
+                        bike: "Honda 125"
+                })
+            }, 2000);
+        })
+        let ri= await rider
+        console.log(ri.rider)
+        console.log(ri.bike)
+        return ri
+    }
+    async function tracking(rider) {
+    let trak= new Promise((resolve, reject) => {
+
+           
+        
+
+        
+
+
+
+  
+})
+    let tr= await 
+    console.log(tr)
+ 
+    return tr
+    }
+
+    try {
+
+        let system = login("admin", 123)
+        let nee = await system
+        let res = resturant(nee)
+        let status = await res
+        let odr = order("Biryani")
+        let confirm = await odr
+        let bills = bill(confirm)
+        let bilt = await bills
+        let amout = payment(5000, bilt.total)
+        let am = await amout
+        let ri= assignrider(am)
+        let newrider= await ri
+        let tr=tracking(newrider)
+        let tackk= await tr
+
+    } catch (error) {
+        console.log(error)
+    }
+
+
+
+}
+start()
+
